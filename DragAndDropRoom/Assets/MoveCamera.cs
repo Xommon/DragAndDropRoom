@@ -84,16 +84,15 @@ public class MoveCamera : MonoBehaviour
         /// KEYBOARD AND MOUSE BUTTON ROTATION ///
         /// 
         // Rotate right
-        if (Input.GetMouseButton(2) && Input.GetAxis("Mouse X") > 0)
-        {
-            transform.Rotate(Vector3.up * Time.deltaTime * ZoomSpeed * 2, Space.World);
-        }
-
-        // Rotate left
-        if (Input.GetMouseButton(2) && Input.GetAxis("Mouse X") < 0)
+        if ((Input.GetMouseButton(2) && Input.GetAxis("Mouse X") > 0) || Input.GetKey("]"))
         {
             transform.Rotate(Vector3.down * Time.deltaTime * ZoomSpeed * 2, Space.World);
         }
 
+        // Rotate left
+        if ((Input.GetMouseButton(2) && Input.GetAxis("Mouse X") < 0) || Input.GetKey("["))
+        {
+            transform.Rotate(Vector3.up * Time.deltaTime * ZoomSpeed * 2, Space.World);
+        }
     }
 }
